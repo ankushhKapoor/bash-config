@@ -22,7 +22,11 @@ lsx() {
       continue
     fi
     ctime=$(stat -c %W "$file")
-    size=$(stat -c %s "$file")
+    if [ -d "$file" ]; then
+      size=$(du -sb "$file" | cut -f1)
+    else
+      size=$(stat -c %s "$file")
+    fi
     if [ "$ctime" -gt 0 ]; then
       printf "%-20s %12s bytes  Created: %s\n" "$base" "$size" "$(date -d @"$ctime" "+%d-%m-%Y %H:%M")"
     else
