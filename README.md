@@ -18,7 +18,7 @@ This repository contains my personal Bash configuration files for easy backup an
 * **Example output:**
 
   ```
-  c                            4096 bytes  Created: 11-05-2025 17:08
-  python                       4096 bytes  Created: 10-05-2025 00:27
-  tools                        4096 bytes  Created: 11-05-2025 17:33
+  c                      1073969817 bytes  Created: 11-05-2025 17:08
+  python                  314659663 bytes  Created: 10-05-2025 00:27
+  tools                       22974 bytes  Created: 11-05-2025 17:33
   ```
