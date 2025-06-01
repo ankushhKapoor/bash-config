@@ -18,7 +18,7 @@ This repository contains my personal Bash configuration files for easy backup an
 * **Example output:**
 
   ```
-  Makefile             193 bytes  Created: 01-06-2025 15:37
-  alloc                15776 bytes  Created: 01-06-2025 16:00
-  .bashrc              451 bytes  Created: 30-05-2025 18:25
+  c                            4096 bytes  Created: 11-05-2025 17:08
+  python                       4096 bytes  Created: 10-05-2025 00:27
+  tools                        4096 bytes  Created: 11-05-2025 17:33
   ```
