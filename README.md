@@ -6,7 +6,7 @@ This repository contains my personal Bash configuration files for easy backup an
 
 ## Custom Command: `lsx`
 
-`lsx` is an extended version of the `ls` command that shows each file or directory on a separate line along with its size and creation date/time.
+`lsx` is an extended version of the `ls` command that shows total size of current dir, each file or directory on a separate line along with its size and creation date/time.
 
 * **Usage:**
 
