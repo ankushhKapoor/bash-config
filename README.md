@@ -1,27 +1,47 @@
 # Bash Config Repo
 
-This repository contains my personal Bash configuration files for easy backup and portability.
+This repo stores my Bash configuration files for backup and portability.
 
 ---
 
-## Custom Command: `lsx`
+## 🔧 Custom Command: `lsx`
 
-`lsx` is an extended version of the `ls` command that shows total size of current dir, each file or directory on a separate line along with its size and creation date/time.
+Extended `ls` command that shows:
 
-* **Usage:**
+- Total size of current or given directory
+- Size and creation date of each file/folder
+- `/` for directories, `*` for executables
+- Error if directory doesn't exist
 
-  ```bash
-  lsx          # List visible files with size and creation date/time
-  lsx -a       # List all files including hidden ones with size and creation date/time
-  ```
 
-* **Example output:**
+### ▶️ Usage
 
-  ```
-  Total: 1388653749 bytes
-  README.md                     723 bytes  01-06-2025 20:38
-  TEST                          572 bytes  11-05-2025 12:04
-  c                      1073969817 bytes  11-05-2025 17:08
-  python                  314659663 bytes  10-05-2025 00:27
-  tools                       22974 bytes  11-05-2025 17:33
-  ```
+```bash
+lsx         # List visible files
+lsx -a      # Include hidden files
+lsx dir/    # List files in a directory
+```
+
+
+### 📌 Example
+
+```bash
+lsx abcd
+```
+
+   **Output -**
+
+```bash
+Total: 1388653749 bytes
+README.md                   723 bytes  01-06-2025 20:38
+c/                   1073969817 bytes  11-05-2025 17:08
+tools/                    22974 bytes  11-05-2025 17:33
+```
+
+  **If the path is invalid:**
+
+```bash
+lsx: 'abcd' - No such directory exists
+```
+
+---
