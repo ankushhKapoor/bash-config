@@ -1,17 +1,22 @@
 # lsx: Extended ls command to show size and creation date of files/folders
 lsx() {
   local files=()            # Array to hold file paths
-  local total_size=0        # To store total size of listed files/folders
-  local dir                 # Directory to inspect
+  local total_size=0        # Total size tracker
+  local dir="."             # Default directory
+  local show_all=false      # Flag to show hidden files
 
-  # Check if -a flag is used (for showing hidden files)
-  if [[ "$1" == "-a" ]]; then
+  # Argument parsing
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -a)
+        show_all=true
+        ;;
+      *)
+        dir="$1"
+        ;;
+    esac
     shift
-    dir="${1:-.}"
-    shift
-  else
-    dir="${1:-.}"
-  fi
+  done
 
   # Check if directory exists
   if [ ! -d "$dir" ]; then
@@ -19,8 +24,8 @@ lsx() {
     return 1
   fi
 
-  # Expand hidden + visible files
-  if [[ "$1" == "-a" ]]; then
+  # Expand file list
+  if $show_all; then
     files=( "$dir"/.* "$dir"/* )
   else
     files=( "$dir"/* )
@@ -48,7 +53,7 @@ lsx() {
 
   echo "Total: $total_size bytes"
 
-  # Second pass: Show details
+  # Second pass: Print file details
   for file in "${files[@]}"; do
     base=$(basename "$file")
 
@@ -60,6 +65,7 @@ lsx() {
     fi
 
     ctime=$(stat -c %W "$file")
+
     if [ -d "$file" ]; then
       size=$(du -sb "$file" | cut -f1)
       suffix="/"
